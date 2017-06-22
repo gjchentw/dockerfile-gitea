@@ -26,8 +26,12 @@ RUN	addgroup -S -g 1000 git && \
 	chmod 775 /etc/s6.d/gitea/setup && \
 	ln -s /data/gitea/conf/app.ini /var/lib/gitea/conf/app.ini && \
 	ln -s /usr/bin/gitea /var/lib/gitea/gitea && \
-	sed -i -e 's/\/app\/gitea/\/var\/lib\/gitea/g' /etc/s6.d/gitea/*
+	sed -i -e 's/\/app\/gitea/\/var\/lib\/gitea/g' /etc/s6.d/gitea/* && \
+	ln -s /data/ssh/ssh_host_ed25519_key /etc/ssh/ && \
+	ln -s /data/ssh/ssh_host_rsa_key /etc/ssh/ && \
+	ln -s /data/ssh/ssh_host_dsa_key /etc/ssh && \
+	ln -s /data/ssh/ssh_host_ecdsa_key /etc/ssh/ 
 
-ENV	GITEA_CUSTOM=/var/lib/gitea USER=git
+ENV	GITEA_CUSTOM=/data/gitea USER=git
 VOLUME	["/data"]
 
