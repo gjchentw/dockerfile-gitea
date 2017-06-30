@@ -33,5 +33,6 @@ RUN	addgroup -S -g 1000 git && \
 	ln -s /data/ssh/ssh_host_ecdsa_key /etc/ssh/ 
 
 ENV	GITEA_CUSTOM=/data/gitea USER=git
+EXPOSE	3000 22
 VOLUME	["/data"]
 
