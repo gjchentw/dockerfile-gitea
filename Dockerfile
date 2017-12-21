@@ -1,4 +1,4 @@
-FROM gjchen/alpine:3.6
+FROM gjchen/alpine:3.7
 MAINTAINER gjchen <gjchen.tw@gmail.com>
 
 RUN	apk --no-cache --no-progress upgrade -f && \
@@ -17,8 +17,8 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 
 ADD	gitea/docker/etc/s6/gitea /etc/s6.d/gitea
 ADD	gitea/docker/etc/s6/openssh /etc/s6.d/openssh
-ADD	app.ini /etc/templates/app.ini
-ADD	setup /etc/s6.d/gitea/setup
+ADD	gitea/docker/etc/templates /etc/templates
+ADD	gitea/options /var/lib/gitea/conf
 
 RUN	addgroup -S -g 1000 git && \
 	adduser -S -H -D -h /data/git -s /bin/bash -u 1000 -G git git && \
