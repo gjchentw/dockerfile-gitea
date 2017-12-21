@@ -1,4 +1,4 @@
-FROM gjchen/alpine:3.7
+FROM gjchen/alpine:3.6
 MAINTAINER gjchen <gjchen.tw@gmail.com>
 
 RUN	apk --no-cache --no-progress upgrade -f && \
@@ -18,7 +18,8 @@ RUN	apk --no-cache --no-progress upgrade -f && \
 COPY	s6.d /etc/s6.d
 COPY	app.ini /etc/gitea/app.ini
 
-RUN	ln -s /data/ssh/ssh_host_ed25519_key /etc/ssh/ && \
+RUN	ln -s /var/lib/gitea/conf/ /usr/share/webapps/gitea/options && \
+	ln -s /data/ssh/ssh_host_ed25519_key /etc/ssh/ && \
 	ln -s /data/ssh/ssh_host_rsa_key /etc/ssh/ && \
 	ln -s /data/ssh/ssh_host_dsa_key /etc/ssh && \
 	ln -s /data/ssh/ssh_host_ecdsa_key /etc/ssh/ 

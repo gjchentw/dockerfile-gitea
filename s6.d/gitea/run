@@ -1,0 +1,10 @@
+#!/bin/bash
+[[ -f ./setup ]] && source ./setup
+
+export
+uid=${SUEXEC_UID:-"1000"}
+gid=${SUEXEC_GID:-"1000"}
+
+pushd /data/gitea > /dev/null
+    exec su-exec ${uid}:${gid} gitea web
+popd
