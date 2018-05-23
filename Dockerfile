@@ -25,5 +25,4 @@ RUN	ln -s /data/ssh/ssh_host_ed25519_key /etc/ssh/ && \
 
 ENV	USER=git
 EXPOSE	3000 22
-VOLUME	["/data"]
 
