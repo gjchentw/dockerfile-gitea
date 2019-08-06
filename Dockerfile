@@ -13,7 +13,7 @@ RUN	echo @testing http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/
 	curl \
 	openssh \
 	tzdata \
-	gitea
+	gitea@testing
 
 COPY	s6.d /etc/s6.d
 COPY	app.ini /etc/gitea/app.ini
