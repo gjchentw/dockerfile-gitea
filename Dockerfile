@@ -1,7 +1,7 @@
 FROM gjchen/alpine:3.9
-MAINTAINER gjchen <gjchen.tw@gmail.com>
 
-RUN	apk --no-cache --no-progress upgrade -f && \
+RUN	echo @testing http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+	apk --no-cache --no-progress upgrade -f && \
 	apk --no-cache --no-progress add \
 	su-exec \
 	ca-certificates \
