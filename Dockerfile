@@ -1,6 +1,6 @@
 FROM gjchen/alpine:3.9
 
-RUN	echo @testing http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+RUN	echo @edge http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
 	apk --no-cache --no-progress upgrade -f && \
 	apk --no-cache --no-progress add \
 	su-exec \
@@ -13,7 +13,7 @@ RUN	echo @testing http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/
 	curl \
 	openssh \
 	tzdata \
-	gitea@testing
+	gitea@edge
 
 COPY	s6.d /etc/s6.d
 COPY	app.ini /etc/gitea/app.ini
