@@ -1,4 +1,4 @@
-FROM gjchen/alpine:3.9
+FROM gjchen/alpine:latest
 
 RUN	echo @edge http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
 	apk --no-cache --no-progress upgrade -f && \
